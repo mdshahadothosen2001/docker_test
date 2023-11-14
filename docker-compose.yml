@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  dj_docker:
+    image: django_cocker:0.0.1
+    build:
+      context: .
+      dockerfile: ./docker/development/Dockerfile
+    container_name: dj_docker_container
+    command: >
+      sh -c "cd /app/backend && python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
