@@ -30,8 +30,8 @@ pip install -r backend/requirements/development.txt
 4. Run docker containers:
 
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 click here [URL](http://localhost:8000/)  for check this project working or not
-If you see login page then it is working.
+If you see django interface page then it is working.
