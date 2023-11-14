@@ -33,5 +33,5 @@ pip install -r backend/requirements/development.txt
 docker-compose up --build
 ```
 
-click here [URL](http://localhost:8020/admin)  for check this project working or not
+click here [URL](http://localhost:8000/)  for check this project working or not
 If you see login page then it is working.
