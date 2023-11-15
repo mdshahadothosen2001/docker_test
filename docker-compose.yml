@@ -8,6 +8,6 @@ services:
       dockerfile: ./docker/development/Dockerfile
     container_name: dj_docker_container
     command: >
-      sh -c "cd /app/backend && python manage.py runserver 0.0.0.0:8000"
+      sh -c "cd /app/backend && python manage.py runserver 0.0.0.0:8010"
     ports:
-      - "8000:8000"
+      - "8010:8010"

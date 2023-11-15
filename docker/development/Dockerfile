@@ -8,6 +8,6 @@ COPY ./backend/requirements/development.txt /app/backend/requirements/
 RUN pip install -r backend/requirements/development.txt
 
 COPY . .
-EXPOSE 8000
+EXPOSE 8010
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8010"]
