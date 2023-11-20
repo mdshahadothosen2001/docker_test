@@ -1,16 +1,41 @@
-version: "3"
+version: "3.8"
 
 services:
-  dj_docker:
-    image: django_cocker:0.0.1
+  db_dj:
+    image: postgres:15
+    restart: always
+    env_file:
+      - ./.env/dev.env
+    ports:
+      - 5435:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - main
+
+  dj_backend:
+    restart: always
     build:
       context: .
       dockerfile: ./docker/development/Dockerfile
-    container_name: dj_docker_container
+    container_name: dj_backend
     command: >
       sh -c "cd /app/backend &&
       python manage.py makemigrations book &&
       python manage.py migrate &&
-      python manage.py runserver 0.0.0.0:8010"
+      python manage.py runserver 0.0.0.0:8011"
+    volumes:
+      - .:/app
     ports:
-      - "8010:8010"
+      - "8011:8011"
+    depends_on:
+      - db_dj
+    env_file:
+      - ./.env/dev.env
+    networks:
+      - main
+
+networks:
+  main:
+volumes:
+  pgdata:
